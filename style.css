@@ -1,0 +1,895 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Teko', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+.sec1{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(assets/pubg_ka_background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.menu_slider{
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,.8);
+    text-align: center;
+    z-index: 5000;
+    transition: .5s;
+}
+.menu_slider.active{
+    bottom: 0;
+}
+.menu_slider ul{
+    margin-top: 4rem;
+}
+.menu_slider ul li{
+    list-style: none;
+    margin: 3rem 0;
+}
+.menu_slider ul li a{
+    position: relative;
+    z-index: 1;
+    display: block;
+    border-bottom: .3rem solid #777;
+    font-size: 5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #b7d83e;
+    padding: 1rem 3rem;
+    font-weight: 500;
+    overflow: hidden;
+    transition: .5s;
+    text-shadow: .5rem .5rem 1rem #000;
+}
+.menu_slider ul li a h1{
+    position: relative;
+    z-index: 1;
+}
+.menu_slider ul li a:before{
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #4a4b4e;
+    border-radius: 50%;
+    transition: .5s;
+}
+.menu_slider ul li a:hover:before{
+    bottom: -50%;
+}
+.menu_slider ul li a:hover{
+    color: #fff;
+}
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: .2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0,0,0,.6);
+    padding: 0 2rem;
+    box-shadow: 1rem 1rem 2rem #000;
+    z-index: 10000;
+}
+.menu{
+    width: 4rem;
+    height: 3rem;
+    background:url(assets/menu.png) ;
+    display: none;
+    background-size: cover;
+    background-position: center;
+    transition: .5s;
+}
+.menu.active{
+    width: 4rem;
+    height: 4rem;
+    background:url(assets/close.png) ;
+    background-size: cover;
+    background-position: center;
+}
+.menu img{
+    width: 100%;
+}
+.nav .logo{
+    width: 11rem;
+    background: rgb(158, 190, 15);
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+   
+}
+.nav .logo img{
+    width: 100%;
+    filter: invert(1);
+}
+.nav .navBar ul{
+    display: flex;
+    list-style-type: none;
+}
+.nav .navBar ul li{
+    margin: 0 2rem;
+}
+.nav .navBar ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 3rem;
+    transition: .5s;
+}
+.nav .navBar ul li a:hover{
+    color:rgb(158, 190, 15) ;
+}
+.nav .info ul{
+    list-style-type: none;
+    display: flex;
+}
+.nav .info ul li{
+    margin: 0rem 2rem;
+}
+.nav .info ul li a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 3rem;
+}
+.nav .info ul li .buy{
+    background:rgb(158, 190, 15);
+    padding: 2.6rem;
+}
+.prev{
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    color: #fff;
+    background: radial-gradient(rgb(255, 251, 6),yellow);
+    font-size: 2rem;
+    padding: 2rem;
+    box-shadow: .5rem .5rem 1rem #000;
+    text-shadow: .2rem .2rem .6rem #000;
+    z-index: 1000;
+    cursor: pointer;
+    transition: .5s;
+}
+.prev:hover{
+    background: #83af1a;
+}
+.next{
+    position: absolute;
+    top: 50%;
+    left: 93%;
+    color: #fff;
+    background: radial-gradient(rgb(255, 251, 6),yellow);
+    font-size: 2rem;
+    padding: 2rem;
+    box-shadow: .5rem .5rem 1rem #000;
+    text-shadow: .2rem .2rem .6rem #000;
+    z-index: 1000;
+    cursor: pointer;
+    transition: .5s;
+}
+.next:hover{
+    background: #83af1a;
+}
+.sec1 .container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+.sec1 .container .player img{
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60rem;
+    filter: drop-shadow(1rem 1rem 1rem #000);
+    z-index: 100;
+    animation-name: animate1;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+@keyframes animate1{
+    from{
+        opacity: 0;
+        transform: translateX(20rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+.sec1 .container2 .player img{
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 28rem;
+    filter: drop-shadow(1rem 1rem 1rem #000);
+    z-index: 100;
+}
+.sec1 .container3 .player img{
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 70rem;
+    filter: drop-shadow(1rem 1rem 1rem #000);
+    z-index: 100;
+}
+.sec1 .container4 .player img{
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 50rem;
+    filter: drop-shadow(1rem 1rem 1rem #000);
+    z-index: 100;
+}
+.sec1 .container .car img{
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+    width: 50rem;
+    z-index: 10;
+    filter: drop-shadow(1rem 1rem 2rem #000);
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container2 .car img{
+    position: absolute;
+    bottom: 0%;
+    left: 2%;
+    width: 60rem;
+    z-index: 10;
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container3 .car img{
+    position: absolute;
+    bottom: 0%;
+    left: 2%;
+    width: 60rem;
+    z-index: 10;
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container4 .car img{
+    position: absolute;
+    bottom: 0%;
+    left: 2%;
+    width: 100rem;
+    z-index: 10;
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+@keyframes animate2{
+    from{
+        opacity: 0;
+        transform: translateY(20rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+.sec1 .container .player_detail{
+    position: absolute;
+    right: 20%;
+    bottom: -2%;
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8rem;
+    box-shadow: .5rem .5rem 1rem #000;
+    animation-name: animate3;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container .player_detail .season{
+    animation-name: animate1;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container .player_detail .clan{
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container .player_detail .crew{
+    animation-name: animate3;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container .player_detail .armony{
+    animation-name: animate4;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.sec1 .container .player_detail .inventory{
+    animation-name: animate2;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+@keyframes animate3{
+    from{
+        opacity: 0;
+        transform: translateX(-20rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+.sec1 .container .player_detail h2{
+    font-size: 4rem;
+    text-transform: uppercase;
+    text-shadow: 1rem 1rem 1rem #000;
+    letter-spacing: .4rem;
+    z-index: 10;
+}
+.sec1 .container .player_detail h6{
+    font-size: 2.5rem;
+    color: rgb(250, 208, 68);
+    text-transform: uppercase;
+    text-shadow: .5rem .5rem 1rem #000;
+    letter-spacing: .2rem;
+}
+.sec1 .container .pubg_back img{
+    position: absolute;
+    right: 7%;
+    bottom: 20%;
+    width: 100rem;
+    z-index: 1;
+    animation-name: animate4;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+@keyframes animate4{
+    from{
+        opacity: 0;
+        transform: translateY(-20rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+/*section 1 ends*/
+
+
+/*----update section starts here------*/
+.sec2{
+    position: relative;
+    height: auto;
+    padding: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    background: radial-gradient(#333,#000);
+}
+.sec2 h4{
+    color: #fff;
+    font-size: 5rem;
+}
+.sec2 .boxsheet{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+    grid-template-rows: minmax(50rem,auto);
+    margin: 4rem;
+    grid-auto-flow: dense;
+    grid-gap: 1rem;
+}
+.sec2 .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    padding: 2rem;
+    transition: .5s;
+}
+
+.sec2 .box h2{
+    font-size: 6rem;
+    text-shadow: 1rem 1rem 1rem #000;
+    text-transform: uppercase;
+}
+.sec2 .box a{
+    background: rgb(182, 218, 25);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 3rem;
+}
+.sec2 .box a:hover{
+    background: rgb(157, 187, 23);
+}
+.sec2 .box1{
+    grid-column: span 4;
+    background: url(assets/pubgbg.jpg);
+    background-position: center;
+    background-size: cover;
+    transition: .5s;
+}
+.sec2 .box1:hover{
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(assets/pubgbg.jpg);
+}
+.sec2 .box2{
+    grid-column: span 2;
+    grid-row: span 50;
+    background: url(assets/pubg_tool.jpg);
+    background-position: center;
+    background-size: cover;
+    transition: .5s;
+}
+.sec2 .box2:hover{
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(assets/pubg_tool.jpg);
+}
+.sec2 .box3{
+    grid-column: span 2;
+    grid-row: span 50;
+    background: url(assets/pubg1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.sec2 .box3:hover{
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(assets/pubg1.jpg);
+}
+
+/*----update section ends here------*/
+
+
+/*---patch notes section------*/
+.sec3{
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem;
+    background: linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,.5)),url(assets/pubgbg.jpg);
+    background-size: cover;
+}
+.sec3 .head{
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+.sec3 .bag{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 95%;
+    padding: 3rem;
+}
+.sec3 .bag .box{
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+    background: rgb(131, 131, 131);
+    box-shadow: 0 0 1rem #000;
+    width: 45%;
+    overflow: hidden;
+    transition: .5s;
+}
+.sec3 .bag .box:hover{
+    transform: translateY(-1rem);
+}
+.sec3 .bag .box .back{
+    content: "";
+    position: absolute;
+    bottom: -140%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: rgba(255,255,255,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    transition: .5s;
+    z-index: 1000;
+}
+.sec3 .bag .box .back.active{
+    bottom: 0;
+}
+.sec3 .bag .box .back h2{
+    font-size: 5rem;
+}
+.sec3 .bag .box .back p{
+    font-size: 2.4rem;
+}
+.sec3 .bag .box .back a{
+    font-size: 2rem;
+    color: #fff;
+    background: rgb(218, 168, 33);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+.sec3 .bag .box .image{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+.sec3 .bag .box .image img{
+    height: 100%;
+    width: 100%;
+    transform: scale(1.2);
+    transition: .5s;
+}
+.sec3 .bag .box:hover .image img{
+    transform: scale(1);
+}
+.sec3 .bag .box .content {
+    margin: 2rem 2rem 2rem 2rem;
+}
+.sec3 .bag .box .content h2{
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+.sec3 .bag .box .content p{
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.sec3 .bag .box .content a{
+    color: #fff;
+    background: rgb(161, 214, 36);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    transition: .5s;
+    cursor: pointer;
+}
+.sec3 .bag .box .content a:hover{
+    background: rgb(135, 180, 31);
+}
+/*---!patch notes section------*/
+
+
+/*-----social section---------*/
+.sec4{
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 5rem;
+    background: url(assets/pubg3.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.sec4 .box{
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.sec4 .box h2{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 6rem;
+}
+.sec4 .box p{
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 200;
+    margin: 1rem 0;
+}
+.sec4 .box .social img{
+    margin: 1rem 3rem;
+    cursor: pointer;
+    transition: .5s;
+}
+.sec4 .box .social img:hover{
+    transform: scale(1.2);
+}
+/*-----!social section---------*/
+
+/*----footer section----------*/
+.sec5{
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 5rem;
+    background: #333;
+    overflow: hidden;
+}
+.sec5 .media ul{
+    list-style-type: none;
+    display: flex;
+}
+.sec5 .media ul li{
+    margin:1rem 3rem;
+}
+.sec5 .media ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+}
+.sec5 .footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem 0;
+    color: #777;
+    font-size: 1.2rem;
+}
+.sec5 .footer img{
+    filter: invert(1);
+}
+.sec5 .footer .detail{
+    margin-left: 2rem;
+}
+.sec5 .footer .detail ul{
+    display: flex;
+    list-style-type: none;
+}
+.sec5 .footer .detail ul li{
+    margin: 0 2rem;
+}
+.sec5 .footer .detail ul li a{
+    text-decoration: none;
+    color: #777;
+    font-size: 2rem;
+    padding: 0 2rem;
+    border-right: .3rem solid #777;
+}
+.sec5 .footer .detail ul li a:hover{
+    color: #fff;
+}
+/*----!footer section----------*/
+
+
+
+/*-----media query starts here-------*/
+@media(max-width:1035px){
+    html{
+        font-size: 55%;
+    }
+}
+@media(max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .nav .navBar ul li a {
+        font-size: 2.5rem;
+    }
+    .nav .info ul li a {
+        font-size: 2.5rem;
+    }
+    .sec1 .container .pubg_back img {
+        width: 80rem;
+    }
+    .sec2 .boxsheet{
+        grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+        grid-template-rows: minmax(auto,auto);
+    }
+    .sec2 .boxsheet .box{
+        grid-row: unset !important;
+        grid-column: unset !important;
+    }
+    
+    
+}
+@media(max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .sec1 .container .player_detail {
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+    .container .player_detail h2 {
+        letter-spacing: .4rem;
+        margin: 0 2rem;
+        width: 100%;
+    }
+}
+@media(max-width:698px){
+    html{
+        font-size: 45%;
+    }
+    .nav .navBar ul {
+        display: none;
+        list-style-type: none;
+    }
+    .menu{
+        display: inline-block;
+    }
+    .sec1 .container .pubg_back img {
+        right: 3%;
+    }
+    .next {
+        left: 90%;
+    }
+    .sec1 .container .player_detail h2 {
+        font-size: 3.5rem;
+    }
+    .sec3 .bag .box .back {
+        padding: 5rem 2rem;
+    }
+    .sec3 .bag .box .back h2 {
+        font-size: 3rem;
+    }
+    .sec3 .bag .box .back a {
+        padding: .5rem 2rem;
+    }
+    .sec3 .bag {
+        flex-direction: column;
+    }
+    .sec3 .bag .box {
+        width: 100%;
+    }
+}
+@media(max-width:550px){
+    html{
+        font-size: 45%;
+    }
+    .sec1 .container .pubg_back img {
+        width: 70rem;
+    }
+    .sec1 .container .player_detail {
+        right: 2%;
+    }
+}
+@media(max-width:508px){
+    html{
+        font-size: 45%;
+    }
+    .sec1 .container .player_detail h2 {
+        font-size: 3rem;
+    }
+    .container .player_detail {
+        position: absolute;
+        right: 18%;
+        padding: 5rem;
+    }
+}
+
+@media(max-width:456px){
+    html{
+        font-size: 40%;
+    }
+}
+@media(max-width:432px){
+    html{
+        font-size: 40%;
+    }
+    .sec1 .container .pubg_back img {
+        width: 65rem;
+        top: 10%;
+        left: -5%;
+    }
+    .sec1 .container .player img {
+        left: 10%;
+    }
+    .sec1 .container3 .player img {
+        left: -25%;
+    }
+    .sec1 .container .player_detail h2 {
+        font-size: 3rem;
+        letter-spacing: .1rem;
+        margin: 0 1rem;
+    }
+    .sec3 .bag .box .back p {
+        font-size: 2rem;
+    }
+    .sec4 .box {
+        width: 100%;
+        text-align: center;
+    }
+    .sec5 .footer {
+        flex-direction: column;
+    }
+    .sec5 .footer .detail ul li a {
+        font-size: 1.5rem;
+        padding: 0rem .3rem;
+    }
+    .sec5 .footer .detail ul li {
+        margin: 0 .3rem;
+    }
+    .sec2 .box h2 {
+        font-size: 4.5rem;
+    }
+}
+@media(max-width:360px){
+    html{
+        font-size: 40%;
+    }
+    .sec1 .container .player img {
+        left: 2%;
+    }
+    .sec1 .container3 .player img {
+        left: -35%;
+    }
+    .next {
+        left: 85%;
+    }
+    .sec1 .container .pubg_back img {
+        width: 55rem;
+        top: 20%;
+        left: 0rem;
+    }
+    .nav .info ul li .buy {
+        padding: 2rem 1rem;
+        font-size: 2rem;
+    }
+    .nav .info ul li {
+        margin: 0rem .5rem;
+    }
+    
+}
+@media(max-width:330px){
+    html{
+        font-size: 40%;
+    }
+    .sec1 .container .pubg_back img {
+        width: 55rem;
+        top: 25%;
+        left: -2rem;
+    }
+
+}
+@media(max-width:300px){
+    html{
+        font-size: 35%;
+    }
+    .sec2 .box h2 {
+        font-size: 5rem;
+    }
+}
+/*-----!media query starts here-------*/
